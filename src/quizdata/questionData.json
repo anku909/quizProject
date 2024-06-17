@@ -1,0 +1,63 @@
+[
+    {
+      "no": 1,
+      "question": "What is the capital of Japan?",
+      "options": ["Beijing", "Tokyo", "Seoul", "Bangkok"],
+      "answer": "Tokyo"
+    },
+    {
+      "no": 2,
+      "question": "What is the capital of Australia?",
+      "options": ["Sydney", "Canberra", "Melbourne", "Perth"],
+      "answer": "Canberra"
+    },
+    {
+      "no": 3,
+      "question": "What is the capital of Brazil?",
+      "options": ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"],
+      "answer": "Brasília"
+    },
+    {
+      "no": 4,
+      "question": "What is the capital of South Africa?",
+      "options": ["Johannesburg", "Cape Town", "Pretoria", "Durban"],
+      "answer": "Pretoria"
+    },
+    {
+      "no": 5,
+      "question": "What is the capital of India?",
+      "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"],
+      "answer": "New Delhi"
+    },
+    {
+      "no": 6,
+      "question": "What is the capital of Canada?",
+      "options": ["Toronto", "Montreal", "Ottawa", "Vancouver"],
+      "answer": "Ottawa"
+    },
+    {
+      "no": 7,
+      "question": "What is the capital of Egypt?",
+      "options": ["Alexandria", "Giza", "Cairo", "Luxor"],
+      "answer": "Cairo"
+    },
+    {
+      "no": 8,
+      "question": "What is the capital of Germany?",
+      "options": ["Berlin", "Munich", "Frankfurt", "Hamburg"],
+      "answer": "Berlin"
+    },
+    {
+      "no": 9,
+      "question": "What is the capital of Argentina?",
+      "options": ["Buenos Aires", "Cordoba", "Rosario", "Mendoza"],
+      "answer": "Buenos Aires"
+    },
+    {
+      "no": 10,
+      "question": "What is the capital of Spain?",
+      "options": ["Barcelona", "Madrid", "Valencia", "Seville"],
+      "answer": "Madrid"
+    }
+  ]
+  
