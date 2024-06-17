@@ -60,7 +60,6 @@ const Quiz = () => {
     });
   };
 
-  // Function to calculate score when quiz is submitted
   const handleSubmitQuiz = () => {
     let totalScore = 0;
 
@@ -185,7 +184,7 @@ const Quiz = () => {
             Prev
           </button> 
 
-          {isLastQuestion ? (
+          {isLastQuestion && selectedAnswers[totalQuestions]? (
             <button
               onClick={handleSubmitQuiz}
               className="px-16 py-2 rounded-lg text-xl font-semibold 
