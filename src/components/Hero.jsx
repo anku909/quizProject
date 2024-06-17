@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Quiz from "./Quiz";
 
 function Hero() {
-  const [isFullScreen, setIsFullScreen] = useState(true);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const fullscreenRef = useRef(null);
 
 
