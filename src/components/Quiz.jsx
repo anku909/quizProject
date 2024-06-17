@@ -6,7 +6,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [selectedOption, setSelectedOption] = useState(null);
+  // const [selectedOption, setSelectedOption] = useState(null);
   const [isQuizFinished, setIsQuizFinished] = useState(false);
 
   // Total number of questions
@@ -18,19 +18,20 @@ const Quiz = () => {
   useEffect(() => {
     const quizStateFromStorage = localStorage.getItem("quizState");
     if (quizStateFromStorage) {
-      const { currentQuestion, score, timeLeft } =
+      const { currentQuestion, selectedAnswers, score, timeLeft } =
         JSON.parse(quizStateFromStorage);
       setCurrentQuestion(currentQuestion);
       setScore(score);
       setTimeLeft(timeLeft);
+      setSelectedAnswers(selectedAnswers)
     }
   }, []);
 
   // Save state to localStorage whenever currentQuestion, score, or timeLeft changes
   useEffect(() => {
-    const quizState = { currentQuestion, score, timeLeft };
+    const quizState = { currentQuestion, selectedAnswers, score, timeLeft };
     localStorage.setItem("quizState", JSON.stringify(quizState));
-  }, [currentQuestion, score, timeLeft]);
+  }, [currentQuestion,selectedAnswers,  score, timeLeft]);
 
   // Timer effect to decrement timeLeft every second
   useEffect(() => {
@@ -53,7 +54,6 @@ const Quiz = () => {
 
  
   const handleOptionSelect = (optionIndex) => {
-    setSelectedOption(optionIndex);
     setSelectedAnswers({
       ...selectedAnswers,
       [currentQuestion]: optionIndex
@@ -63,26 +63,23 @@ const Quiz = () => {
   const handleSubmitQuiz = () => {
     let totalScore = 0;
 
-    // Iterate through each question
     for (let i = 1; i <= totalQuestions; i++) {
       const currentQuestionObj = questions.find((question) => question.no === i);
       const selectedOptionAns = selectedAnswers[i];
-      // Check if selected option is correct
+    
       if (selectedOptionAns === currentQuestionObj.answer) {
-        totalScore += 1; // Increment score if correct
+        totalScore += 1; 
       }
     }
 
-    // Set the final score and mark quiz as finished
+   
     setScore(totalScore);
     setIsQuizFinished(true);
   };
 
-  // Function to move to the next question
   const handleNextQuestion = () => {
-    if (currentQuestion < totalQuestions && selectedOption) {
+    if (currentQuestion < totalQuestions && selectedAnswers[currentQuestion]) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null)
     }
   };
 
@@ -137,17 +134,17 @@ const Quiz = () => {
               {option}
             </li>
           ))}
-        </ul>
+        </ul> 
           </div>
         </div>
 
-        <div className="timer-section w-[20vw] h-[46vh] bg-white rounded-lg pt-10">
+        <div className="timer-section w-[20vw] h-[46vh] lg:w-[30vw] lg:h-[46vh] bg-white rounded-lg pt-10">
           <h1 className="text-3xl pl-6 font-semibold text-zinc-600">
             Time Left:{" "}
           </h1>
 
           <div className="timer relative mt-20 flex items-center justify-center">
-            <div className="w-60 h-60 flex items-center justify-center rounded-full bg-blue-200">
+            <div className="w-52 h-52 lg:w-60 lg:h-60 flex items-center justify-center rounded-full bg-blue-200">
               <svg className="w-full h-full">
                 <circle className="circle-bg" cx="50%" cy="50%" r="40%" />
                 <circle

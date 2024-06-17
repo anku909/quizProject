@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Quiz from "./Quiz";
 
 function Hero() {
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(true);
   const fullscreenRef = useRef(null);
 
 
@@ -48,17 +48,17 @@ function Hero() {
 
 
   return (
-    <div  ref={fullscreenRef} onKeyDown={handleKeyDown} tabIndex="0" className="hero w-full h-screen px-20 py-10">
+    <div  ref={fullscreenRef} onKeyDown={handleKeyDown} tabIndex="0" className="hero w-full h-screen px-3 py-8 sm:px-14 sm:py-12 lg:px-20 lg:py-10">
        
-      <section  className="quiz-section w-full h-full px-16 py-10 bg-[#9797c7] border-4 border-[#9c9a9a] rounded-lg">
+      <section  className="quiz-section w-full h-full px-5 py-16 sm:px-14 sm:py-12  lg:px-16 lg:py-10 bg-[#9797c7] border-4 border-[#9c9a9a] rounded-lg">
         {isFullScreen ? <>
         <section className="heading-section w-full h-20 border-4 broder-white rounded-lg flex items-center justify-center">
           <h2 className="text-3xl font-semibold text-zinc-100">Quiz Test</h2>
         </section>
       <Quiz /> 
         </> : <div className="w-full h-full bg-[#d5cce6] rounded-lg flex flex-col  items-center justify-center">
-          <h2 className="text-2xl text-zinc-800 font-semibold">To take the test, please enter fullscreen mode</h2>
-      <button onClick={requestFullScreen} className="px-16 py-2 bg-[#3393ca] text-white text-xl font-semibold mt-4 rounded-lg">
+          <h2 className="text-center lg:text-2xl text-zinc-800 font-semibold">To take the test, please enter fullscreen mode</h2>
+      <button onClick={requestFullScreen} className="px-4 lg:px-16 py-2 bg-[#3393ca] text-white lg:text-xl font-semibold mt-4 rounded-lg">
         Enter Fullscreen
       </button>
         </div>
